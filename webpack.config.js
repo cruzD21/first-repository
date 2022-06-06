@@ -1,9 +1,22 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const fs = require("fs");
+
+const appDirectory = fs.realpathSync(process.cwd());
+
+// Gets absolute path of file within app directory
+const resolveAppPath = (relativePath) =>
+  path.resolve(appDirectory, relativePath);
+
+// Host
+//const host = process.env.HOST || 'localhost';
+
+// Required for babel-preset-react-app
+process.env.NODE_ENV = "development";
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
+  entry: resolveAppPath("./src/index.js"),
 
   output: {
     path: path.join(__dirname, "/dist"),
