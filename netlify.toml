@@ -1,7 +1,3 @@
-
-[build]
-    publish = "build/"
-    base = "website/"
 [[redirects]]
   from = "/*"
   to = "/index.html"
